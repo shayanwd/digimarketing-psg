@@ -1,0 +1,38 @@
+User-agent: *
+Disallow: /wp-admin/
+Disallow: /wp-content/
+Disallow: /wp-content/uploads/wc-logs/
+Disallow: /wp-content/uploads/woocommerce_uploads/
+Disallow: /wp-content/plugins/
+Disallow: /cgi-bin/
+Disallow: /?s=
+Disallow: /search
+Disallow: /tag/
+Disallow: /tags/
+Disallow: /author/
+Disallow: /account
+Disallow: /admin
+Disallow: /shop/
+Disallow: */feed
+Disallow: */embed
+Disallow: /*.html$
+Disallow: /*?attachment_id=
+Disallow: /*?*oseid=*
+Disallow: /*preview_theme_id*
+Disallow: /*preview_script_id*
+
+# Blog specific
+Disallow: /blog/wp-admin/
+Disallow: /blog/wp-content/plugins/
+Disallow: /blog/get-posts/
+Disallow: /blog/author/
+Disallow: /blog/account
+Disallow: /blog/admin
+
+# REST API block (Yoast)
+Disallow: /wp-json/
+Disallow: /?rest_route=
+
+# Sitemaps
+Sitemap: https://www.digimarketing.sg/sitemap_index.xml
+
