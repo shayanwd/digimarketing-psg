@@ -706,3 +706,15 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+
+
+
+
+
+
+
+// Year
+
+
+document.getElementById("current-year").textContent = new Date().getFullYear();
