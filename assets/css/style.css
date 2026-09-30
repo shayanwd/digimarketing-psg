@@ -418,13 +418,13 @@ section.bg-\[\#1C1C1C\] .sec-title .editor {
     resize: none;
 }
 
-.sec-form form .field-row .field-column select {
+/* .sec-form form .field-row .field-column select {
     appearance: none;
     background-image: url("../images/icons/arrow-down-01.webp");
     background-position: right 12px center;
     background-size: 16px;
     background-repeat: no-repeat;
-}
+} */
 
 header .fr-button {
     height: 100%;

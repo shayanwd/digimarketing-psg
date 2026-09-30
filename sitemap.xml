@@ -3,7 +3,7 @@
 
     <url>
         <loc>https://www.digimarketing.sg/</loc>
-        <lastmod>2025-10-20</lastmod>
+        <lastmod>2026-9-30</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
@@ -14,13 +14,6 @@
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-
-     <url>
-  <loc>https://www.digimarketing.sg/psg-grant-for-e-commerce-solution</loc>
-  <lastmod>2026-09-11</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.8</priority>
-</url>
 
     <url>
         <loc>https://www.digimarketing.sg/blog</loc>
@@ -189,6 +182,12 @@
      <url>
         <loc>https://www.digimarketing.sg/digiai-marketing</loc>
         <lastmod>2026-04-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+     <url>
+         <loc>https://www.digimarketing.sg/edge-grant-for-e-commerce-solution</loc>
+        <lastmod>2026-9-30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
