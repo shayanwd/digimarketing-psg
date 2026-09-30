@@ -2494,163 +2494,428 @@ ul.wbg li {
     /* smoothness */
 }
 
-/* PSG Modal Styles */
-.psg-modal-overlay {
+/* Overlay */
+#psgModal {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    inset: 0;
     z-index: 999999;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px;
+    box-sizing: border-box;
+    background: rgba(5, 5, 12, 0.78);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     animation: psgModalFadeIn 0.3s ease-out;
 }
 
-.psg-modal-content {
-    background: linear-gradient(135deg, #1C1C1C 0%, #2D2D2D 100%);
-    border-radius: 20px;
-    max-width: 600px;
+#psgModal *,
+#psgModal *::before,
+#psgModal *::after {
+    box-sizing: border-box;
+}
+
+/* Main card */
+#psgModal .psg-modal-content {
+    position: relative;
+    isolation: isolate;
     width: 100%;
-    max-height: 90vh;
+    max-width: 580px;
+    max-height: calc(100vh - 40px);
+    max-height: calc(100dvh - 40px);
+    overflow-x: hidden;
     overflow-y: auto;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    animation: psgModalSlideIn 0.3s ease-out;
-    border: 2px solid #19a4fe;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: #655080 #14121d;
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+    background:
+        radial-gradient(ellipse at top left,
+            rgba(130, 72, 210, 0.15),
+            transparent 55%),
+        linear-gradient(145deg, #1b1725, #101017 75%);
+
+    border: 1px solid rgba(190, 154, 255, 0.24);
+    border-radius: 24px;
+    box-shadow:
+        0 30px 90px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.07);
+
+    animation: psgModalSlideIn 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.psg-modal-header {
-    padding: 25px 30px 15px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+/* Mouse-follow glow: works with your existing JavaScript */
+#psgModal .psg-modal-content::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    pointer-events: none;
+
+    background: radial-gradient(360px circle at var(--mouse-x, 50%) calc(var(--mouse-y, 50%) + var(--scroll-y, 0px)),
+            rgba(158, 92, 255, 0.25),
+            rgba(112, 70, 210, 0.1) 40%,
+            transparent 72%);
+
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+#psgModal .psg-modal-content.is-glowing::before {
+    opacity: 1;
+}
+
+#psgModal .psg-modal-content.is-glowing {
+    border-color: rgba(185, 139, 255, 0.48);
+    box-shadow:
+        0 30px 90px rgba(0, 0, 0, 0.6),
+        0 0 45px rgba(139, 76, 245, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Header */
+#psgModal .psg-modal-header {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
+    gap: 18px;
+    padding: 22px 26px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.psg-modal-header h3 {
-    color: #FFFFFF;
-    font-size: 24px;
-    font-weight: 700;
+#psgModal .psg-modal-header h3 {
     margin: 0;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-}
-
-.psg-modal-close {
-    background: none;
-    border: none;
-    color: #FFFFFF;
-    font-size: 28px;
-    cursor: pointer;
-    padding: 0;
-    width: 30px;
-    height: 30px;
-    padding: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-}
-
-.psg-modal-close:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    transform: scale(1.1);
-}
-
-.psg-modal-body {
-    padding: 25px 30px;
-    text-align: center;
-}
-
-.psg-modal-icon {
-    margin-bottom: 20px;
-}
-
-.psg-modal-body h4 {
-    color: #19a4fe;
-    font-size: 22px;
+    color: #f5f0ff;
+    font-family: inherit;
+    font-size: clamp(17px, 3.5vw, 21px);
     font-weight: 700;
-    margin-bottom: 15px;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1.45;
+    letter-spacing: -0.5px;
 }
 
-.psg-modal-body p {
-    color: #FFFFFF;
-    font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 25px;
-    opacity: 0.9;
-}
-
-.psg-benefits {
-    text-align: center;
-    margin-bottom: 0px;
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
+/* Close button */
+#psgModal .psg-modal-close {
+    flex: 0 0 36px;
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-    align-items: center;
-}
-
-.psg-benefit-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 12px;
-    color: #FFFFFF;
-    font-size: 15px;
-}
-
-.psg-check {
-    color: #19a4fe;
-    font-weight: bold;
-    margin-right: 12px;
-    font-size: 18px;
-}
-
-.psg-modal-footer {
-    padding: 20px 30px 30px;
-    display: flex;
-    gap: 15px;
-    flex-direction: column;
-}
-
-.psg-modal-btn {
-    padding: 15px 25px;
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 16px;
-    text-decoration: none;
-    text-align: center;
-    transition: all 0.3s ease;
-    border: none;
+    width: 36px;
+    height: 36px;
+    padding: 9px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.04);
+    color: #d8cee8;
     cursor: pointer;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
 }
 
-.psg-modal-btn-primary {
-    background: linear-gradient(135deg, #19a4fe 0%, #007bff 100%);
-    color: #FFFFFF;
-    box-shadow: 0 4px 15px rgba(25, 164, 254, 0.3);
+#psgModal .psg-modal-close svg {
+    display: block;
+    width: 16px;
+    height: 16px;
 }
 
-.psg-modal-btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(25, 164, 254, 0.4);
+/* Body */
+#psgModal .psg-modal-body {
+    padding: 24px 28px 0;
+    text-align: center;
 }
 
-.psg-modal-btn-secondary {
-    background: transparent;
-    color: #FFFFFF;
-    border: 2px solid rgba(255, 255, 255, 0.3);
+/* Existing banner */
+#psgModal .psg-modal-icon {
+    overflow: hidden;
+    margin-bottom: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.025);
 }
 
-.psg-modal-btn-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.5);
+#psgModal .psg-modal-icon img {
+    display: block;
+    width: 100%;
+    height: auto;
 }
+
+/* Main heading */
+#psgModal .psg-modal-body h4 {
+    margin: 0 0 14px;
+    color: #d3b2ff;
+    font-family: inherit;
+    font-size: clamp(24px, 5vw, 31px);
+    font-weight: 800;
+    line-height: 1.3;
+    letter-spacing: -0.9px;
+}
+
+#psgModal .psg-modal-body p {
+    margin: 0 0 24px;
+    color: #bdb5cc;
+    font-size: 14px;
+    line-height: 1.8;
+    opacity: 1;
+}
+
+/* Benefit cards */
+#psgModal .psg-benefits {
+    display: grid;
+    gap: 10px;
+    margin: 0;
+    text-align: left;
+}
+
+#psgModal .psg-benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    padding: 13px 15px;
+    border: 1px solid rgba(183, 142, 239, 0.1);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.025);
+    color: #e9e2f2;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.55;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+#psgModal .psg-check {
+    flex: 0 0 25px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    margin: 0;
+    border: 1px solid rgba(187, 142, 255, 0.22);
+    border-radius: 50%;
+    background: rgba(158, 92, 255, 0.12);
+    color: #d3afff;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* Footer */
+#psgModal .psg-modal-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 24px 28px 26px;
+}
+
+/* Targets your actual existing CTA link */
+#psgModal .psg-modal-footer a.fr-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 54px;
+    padding: 15px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 12px;
+    background: linear-gradient(110deg, #8749dd, #6530bb);
+    box-shadow:
+        0 8px 24px rgba(116, 53, 199, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+#psgModal .psg-modal-footer p {
+    max-width: 390px;
+    margin: 0 auto;
+    color: #9990aa;
+    font-size: 11px;
+    line-height: 1.7;
+    text-align: center;
+}
+
+/* Keyboard focus */
+/* Website theme: blue + dark */
+#psgModal .psg-modal-content {
+    background:
+        radial-gradient(ellipse at top left,
+            rgba(25, 164, 254, 0.12),
+            transparent 55%),
+        linear-gradient(145deg, #1c1c1c, #111318 75%);
+    border-color: rgba(25, 164, 254, 0.28);
+    scrollbar-color: #287caf #14171c;
+}
+
+#psgModal .psg-modal-content::before {
+    background: radial-gradient(360px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+            rgba(25, 164, 254, 0.25),
+            rgba(0, 123, 255, 0.1) 40%,
+            transparent 72%);
+}
+
+#psgModal .psg-modal-content.is-glowing {
+    border-color: rgba(25, 164, 254, 0.55);
+    box-shadow:
+        0 30px 90px rgba(0, 0, 0, 0.6),
+        0 0 45px rgba(25, 164, 254, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+#psgModal .psg-modal-header h3 {
+    color: #fff;
+}
+
+#psgModal .psg-modal-body h4 {
+    color: #19a4fe;
+}
+
+#psgModal .psg-modal-body p {
+    color: #bbc3cd;
+}
+
+#psgModal .psg-benefit-item {
+    color: #e7edf4;
+    border-color: rgba(25, 164, 254, 0.14);
+}
+
+#psgModal .psg-check {
+    color: #55bdff;
+    background: rgba(25, 164, 254, 0.12);
+    border-color: rgba(25, 164, 254, 0.25);
+}
+
+#psgModal .psg-modal-close {
+    color: #c5d1df;
+}
+
+#psgModal .psg-modal-footer a.fr-button {
+    background: linear-gradient(110deg, #19a4fe, #0875e1);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    box-shadow:
+        0 8px 24px rgba(25, 164, 254, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+#psgModal .psg-modal-footer p {
+    color: #98a3b2;
+}
+
+#psgModal .psg-modal-close:focus-visible,
+#psgModal .psg-modal-footer a:focus-visible {
+    outline-color: #65c2ff;
+}
+
+
+
+@media (hover: hover) and (pointer: fine) {
+    #psgModal .psg-modal-close:hover {
+        background: rgba(25, 164, 254, 0.14);
+    }
+
+    #psgModal .psg-benefit-item:hover {
+        background: rgba(25, 164, 254, 0.07);
+        border-color: rgba(25, 164, 254, 0.3);
+    }
+
+    #psgModal .psg-modal-footer a.fr-button:hover {
+        box-shadow: 0 12px 30px rgba(25, 164, 254, 0.35);
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    #psgModal {
+        padding: 12px;
+    }
+
+    #psgModal .psg-modal-content {
+        max-height: calc(100vh - 24px);
+        max-height: calc(100dvh - 24px);
+        border-radius: 20px;
+    }
+
+    #psgModal .psg-modal-header {
+        gap: 12px;
+        padding: 18px;
+    }
+
+    #psgModal .psg-modal-body {
+        padding: 18px 18px 0;
+    }
+
+    #psgModal .psg-modal-icon {
+        margin-bottom: 20px;
+    }
+
+    #psgModal .psg-modal-body p {
+        font-size: 13px;
+    }
+
+    #psgModal .psg-benefit-item {
+        padding: 11px 12px;
+    }
+
+    #psgModal .psg-modal-footer {
+        padding: 20px 18px;
+    }
+}
+
+/* Entrance animations */
+@keyframes psgModalFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes psgModalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    #psgModal,
+    #psgModal *,
+    #psgModal *::before,
+    #psgModal *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    #psgModal .psg-modal-footer a.fr-button:hover,
+    #psgModal .psg-modal-close:hover {
+        transform: none;
+    }
+}
+
+
 
 .ppc-box {
     width: 100%;
@@ -2788,6 +3053,11 @@ ul.wbg li {
     .bzns-mq-item {
         max-width: 320px;
     }
+
+    .psg-modal-footer p {
+        font-size: 10px;
+    }
+
 }
 
 

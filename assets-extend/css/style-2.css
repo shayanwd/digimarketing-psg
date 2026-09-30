@@ -1405,3 +1405,63 @@ label {
     z-index: 111;
     pointer-events: none;
 }
+
+.small-vary {
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.edge-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 20px 0;
+    padding: 16px 18px;
+    background: rgba(25, 164, 254, 0.08);
+    border: 1px solid rgba(25, 164, 254, 0.22);
+    border-left: 3px solid #19a4fe;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.edge-notice .edge-notice-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 22px;
+    width: 22px;
+    height: 22px;
+    margin-top: 2px;
+    border: 1.5px solid #19a4fe;
+    border-radius: 50%;
+    color: #19a4fe;
+    font-family: Georgia, serif;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.edge-notice p {
+    margin: 0;
+    padding: 0;
+    color: black;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.edge-notice p strong {
+    color: black;
+    font-weight: 600;
+}
+
+@media (max-width: 480px) {
+    .edge-notice {
+        gap: 10px;
+        padding: 14px;
+    }
+
+    .edge-notice p {
+        font-size: 13px;
+    }
+}

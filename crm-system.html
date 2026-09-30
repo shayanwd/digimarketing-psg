@@ -352,36 +352,37 @@
 
 
                         <li class="relative group">
-                            <a href="/psg-grant-for-e-commerce-solution" 
-                               class="flex items-center gap-[4px] services-dropdown-trigger">
+                            <a href="/psg-grant-for-e-commerce-solution"
+                                class="flex items-center gap-[4px] services-dropdown-trigger">
                                 Grants
                             </a>
-                        
-                            <ul class="dropdown-menu-1 bg-[#efefef] max-w-[260px] rounded-[6px] flex flex-col services-dropdown">
+
+                            <ul
+                                class="dropdown-menu-1 bg-[#efefef] max-w-[260px] rounded-[6px] flex flex-col services-dropdown">
                                 <li>
                                     <a href="/psg-grant-for-e-commerce-solution">
-                                        PSG Grant
+                                        EDGE Grant
                                         <img src="assets/images/icons/PSG Grant.svg" alt="">
                                     </a>
                                 </li>
-                        
+
                                 <li>
                                     <a href="/psg-grant-for-e-commerce-solution#process">
                                         Application Process
                                         <img src="assets/images/icons/Application Process.svg" alt="">
                                     </a>
                                 </li>
-                        
+
                                 <li>
                                     <a href="/psg-grant-for-e-commerce-solution#eligibility">
                                         Eligibility Criteria
                                         <img src="assets/images/icons/Eligibility Criteria.svg" alt="">
                                     </a>
                                 </li>
-                        
+
                                 <li>
                                     <a href="/psg-grant-for-e-commerce-solution#faqs">
-                                        PSG Grant FAQs
+                                        EDGE Grant FAQs
                                         <img src="assets/images/icons/Grant FAQs.svg" alt="">
                                     </a>
                                 </li>
@@ -1213,7 +1214,7 @@
     <div id="psgModal" class="psg-modal-overlay" style="display: none;">
         <div class="psg-modal-content">
             <div class="psg-modal-header">
-                <h3>Great News for Singapore Businesses!</h3>
+                <h3>PSG Has Ended. The EDGE Grant Is Here.</h3>
                 <button class="psg-modal-close" onclick="closePSGModal()"><svg xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24" fill="currentColor">
                         <path
@@ -1226,17 +1227,17 @@
                     <img src="assets-extend/images/psg-imda-logo 2_converted.webp" alt="PSG Grant"
                         style="width: 100%; object-fit: cover;">
                 </div>
-                <h4>Get Up to 50% Funding for Your E-Commerce Store!</h4>
-                <p>The Singapore government's <strong>PSG E-Commerce Solution Grant</strong> can help fund your online
-                    store development. As a PSG-approved vendor, Digimarketing can help you access this funding.</p>
+                <h4>Get Up to 50% Grant Support for Your E-Commerce Store</h4>
+                <p>From 30 September 2026, Enterprise Singapore's EDGE Grant replaces PSG. Digimarketing can help you
+                    find the right EDGE activity and plan your online store project.</p>
                 <div class="psg-benefits">
                     <div class="psg-benefit-item">
                         <span class="psg-check">✓</span>
-                        <span>Up to 50% government funding</span>
+                        <span>Up to 50% grant support for your e-commerce solution</span>
                     </div>
                     <div class="psg-benefit-item">
                         <span class="psg-check">✓</span>
-                        <span>PSG-approved vendor</span>
+                        <span>Help choosing the right EDGE activity</span>
                     </div>
                     <div class="psg-benefit-item">
                         <span class="psg-check">✓</span>
@@ -1245,10 +1246,9 @@
                 </div>
             </div>
             <div class="psg-modal-footer">
-                <a href="https://digimarketing.sg/psg-grant-for-e-commerce-solution"
-                    class=" fr-button text-[16px]">Learn
-                    More
-                    About PSG Grant</a>
+                <a target="_blank" href="https://smesgodigital.gov.sg/web/solution/20250138/digiecom"
+                    class=" fr-button text-[16px]">
+                    Learn More About EDGE Grant</a>
 
             </div>
         </div>
@@ -1308,6 +1308,62 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <script>
         new WOW().init();
+    </script>
+
+    <script>
+        (function () {
+            function initPopupGlow() {
+                const card = document.querySelector("#psgModal .psg-modal-content");
+
+                if (!card || card.dataset.glowReady) return;
+                card.dataset.glowReady = "true";
+
+                const hoverDevice = window.matchMedia(
+                    "(hover: hover) and (pointer: fine)"
+                );
+                const reducedMotion = window.matchMedia(
+                    "(prefers-reduced-motion: reduce)"
+                );
+
+                let frame = null;
+                let mouseX = 0;
+                let mouseY = 0;
+
+                function clearGlow() {
+                    if (frame !== null) cancelAnimationFrame(frame);
+                    frame = null;
+                    card.classList.remove("is-glowing");
+                }
+
+                card.addEventListener("pointermove", function (event) {
+                    if (!hoverDevice.matches || reducedMotion.matches) return;
+
+                    const rect = card.getBoundingClientRect();
+                    mouseX = event.clientX - rect.left;
+                    mouseY = event.clientY - rect.top;
+
+
+                    if (frame !== null) return;
+
+                    frame = requestAnimationFrame(function () {
+                        card.style.setProperty("--mouse-x", mouseX + "px");
+                        card.style.setProperty("--mouse-y", mouseY + "px");
+                        card.classList.add("is-glowing");
+                        frame = null;
+                    });
+                });
+
+                card.addEventListener("pointerleave", clearGlow);
+                card.addEventListener("pointercancel", clearGlow);
+                window.addEventListener("blur", clearGlow);
+            }
+
+            if (document.readyState === "loading") {
+                document.addEventListener("DOMContentLoaded", initPopupGlow);
+            } else {
+                initPopupGlow();
+            }
+        })();
     </script>
 </body>
 
