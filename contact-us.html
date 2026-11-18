@@ -451,36 +451,29 @@
                     </p>
                     <div class="field-row">
                         <div class="field-column">
-                            <!-- <label for="firstName">First Name<span style="color:red">*</span></label> -->
-                            <input type="text" placeholder="First Name" required id="firstName">
+                            <label for="name" class="block text-[14px] font-semibold text-[#1C1C1C] mb-[6px]">Name <span class="text-[#B42318]" aria-hidden="true">*</span></label>
+                            <input type="text" id="name" name="name" autocomplete="name" placeholder="Your full name" required>
                         </div>
                         <div class="field-column">
-                            <!-- <label for="lastName">Last Name</label> -->
-                            <input type="text" placeholder="Last Name" required id="lastName">
-                        </div>
-                    </div>
-
-                    <div class="field-row">
-                        <div class="field-column">
-                            <!-- <label for="email">Email<span style="color:red">*</span></label> -->
-                            <input type="text" placeholder="Email" required id="email">
-                        </div>
-                        <div class="field-column">
-                            <!-- <label for="phone">Phone Number</label> -->
-                            <input type="text" placeholder="Phone Number" required id="phone">
+                            <label for="company" class="block text-[14px] font-semibold text-[#1C1C1C] mb-[6px]">Company</label>
+                            <input type="text" id="company" name="company" autocomplete="organization" placeholder="Company name">
                         </div>
                     </div>
 
                     <div class="field-row">
                         <div class="field-column">
-                            <!-- <label for="website">Website</label> -->
-                            <input type="text" placeholder="Website" required id="website">
+                            <label for="email" class="block text-[14px] font-semibold text-[#1C1C1C] mb-[6px]">Email <span class="text-[#B42318]" aria-hidden="true">*</span></label>
+                            <input type="email" id="email" name="email" autocomplete="email" placeholder="name@company.com" required>
+                        </div>
+                        <div class="field-column">
+                            <label for="phone" class="block text-[14px] font-semibold text-[#1C1C1C] mb-[6px]">Phone / WhatsApp <span class="text-[#B42318]" aria-hidden="true">*</span></label>
+                            <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+65" required>
                         </div>
                     </div>
 
                     <div class="field-row">
                         <div class="field-column">
-                            <!-- <label for="service">Service<span style="color:red">*</span></label> -->
+                            <label for="service" class="block text-[14px] font-semibold text-[#1C1C1C] mb-[6px]">Service <span class="text-[#B42318]" aria-hidden="true">*</span></label>
                             <select name="service" id="service" required>
                                 <option value="">Select service</option>
                                 <option value="ui-ux">UI/UX</option>
@@ -504,12 +497,9 @@
                                 <option value="ecommerce-solution">E-commerce Solution</option>
                             </select>
                         </div>
-                    </div>
-
-                    <div class="field-row">
                         <div class="field-column">
-                            <!-- <label for="budget">Budget</label> -->
-                            <select name="budget" id="budget" required>
+                            <label for="budget" class="block text-[14px] font-semibold text-[#1C1C1C] mb-[6px]">Budget (SGD)</label>
+                            <select name="budget" id="budget">
                                 <option value="">Select your budget range...</option>
                                 <option value="less-1000">Less than S$1,000</option>
                                 <option value="1000-5000">S$1,000 - S$5,000</option>
@@ -517,29 +507,28 @@
                                 <option value="not-sure">Not sure yet</option>
                             </select>
                         </div>
+                    </div>
+
+                    <div class="field-row">
                         <div class="field-column">
-                            <!-- <label for="timeline">Timeline</label> -->
-                            <select id="timeline" required>
-                                <option value="">Select timeline...</option>
-                                <option value="asap">ASAP</option>
-                                <option value="1-2-weeks">1-2 Weeks</option>
-                                <option value="1-month">1 Month</option>
-                                <option value="flexible">Flexible</option>
-                            </select>
+                            <label for="message" class="block text-[14px] font-semibold text-[#1C1C1C] mb-[6px]">Message <span class="text-[#B42318]" aria-hidden="true">*</span></label>
+                            <textarea name="message" id="message" placeholder="What do you want to build or improve?" required></textarea>
+                            <span id="message-error" class="error-message"></span>
                         </div>
                     </div>
 
                     <div class="field-row">
                         <div class="field-column">
-                            <!-- <label for="message">Additional Note<span style="color:red">*</span></label> -->
-                            <textarea name="message" id="message" placeholder="Additional Note" required></textarea>
-                            <span id="message-error" class="error-message"></span>
+                            <label for="consent" class="flex items-start gap-[10px] text-[13px] leading-[150%] text-[#4A4A4A] cursor-pointer">
+                                <input type="checkbox" id="consent" name="consent" value="yes" required class="!w-[18px] !h-[18px] !p-0 !shadow-none shrink-0 mt-[2px]">
+                                <span>I agree that Digimarketing may contact me about this enquiry. We handle your data under Singapore’s PDPA. <a href="privacy-policy" class="underline">Privacy Policy</a></span>
+                            </label>
                         </div>
                     </div>
 
                     <button class="fr-button mt-[40px] xl:mt-[50px] lg:mt-[50px] md:mt-[50px] sm:mt-[40px]">
                         <img src="assets/images/icons/btn-arrow.webp" alt="" loading="lazy">
-                        Submit
+                        Send enquiry
                     </button>
                 </form>
 
@@ -558,23 +547,26 @@
                         </a>
                     </div>
 
+                    <div class="z-[111] flex flex-col gap-[6px]">
+                        <strong class="text-[17px]">Digi Marketing Pte. Ltd.</strong>
+                    </div>
                     <ul class="flex flex-col gap-[16px] z-[111]">
+                        <li>
+                            <a href="https://maps.app.goo.gl/ZHPxpseLV2cLCRW47" target="_blank" rel="noopener" class="flex items-center gap-[8px] !w-auto max-w-full">
+                                <img src="assets/images/icons/map-icon.webp" alt="" loading="lazy" class="w-[20px] h-[20px] shrink-0 object-contain">
+                                <span>12 Woodlands Square, #13-79, Woods Square, Singapore 737715</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:+6582336257" class="flex items-center gap-[8px]">
+                                <img src="assets/images/icons/ph-icon-B.svg" alt="" loading="lazy">
+                                <span>+65 8233 6257</span>
+                            </a>
+                        </li>
                         <li>
                             <a href="https://wa.me/6582336257" class="flex items-center gap-[8px]">
                                 <img src="assets/images/icons/wh-icon-B.svg" alt="" loading="lazy">
-                                <span>WhatsApp</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="tel:6582336257" class="flex items-center gap-[8px]">
-                                <img src="assets/images/icons/ph-icon-B.svg" alt="" loading="lazy">
-                                <span>+6582336257</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="tel:923103200358" class="flex items-center gap-[8px]">
-                                <img src="assets/images/icons/ph-icon-B.svg" alt="" loading="lazy">
-                                <span>+92 310 320 0358</span>
+                                <span>WhatsApp us</span>
                             </a>
                         </li>
                         <li>
@@ -584,6 +576,14 @@
                             </a>
                         </li>
                     </ul>
+                    <div class="z-[111] bg-white rounded-[20px] p-[16px] flex gap-[16px] items-center">
+                        <img src="assets/images/Cyber%20Certificate.png" alt="Cyber Essentials Mark certificate" loading="lazy"
+                            class="w-[84px] h-[66px] object-cover rounded-[8px] border border-[#ECECEC] shrink-0">
+                        <div class="flex flex-col gap-[4px]">
+                            <strong class="text-[15px] text-[#1C1C1C]">Cyber Essentials Mark</strong>
+                            <span class="text-[13px] leading-[145%] text-[#5A5A5A]">Certified by SGS under CSA Singapore’s scheme.</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

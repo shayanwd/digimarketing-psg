@@ -288,15 +288,25 @@ if (formmmmm) {
         }
 
         // Collect form data
+        // Works with both form layouts: the contact page (name/company/consent)
+        // and the older homepage form (firstName/lastName/website/timeline).
+        const val = id => { const el = document.getElementById(id); return el ? el.value.trim() : ''; };
+        const consentEl = document.getElementById('consent');
+        const fullName = val('name') || [val('firstName'), val('lastName')].filter(Boolean).join(' ');
         const formData = {
-            firstName: document.getElementById('firstName').value,
-            lastName: document.getElementById('lastName').value,
-            email: document.getElementById('email').value,
-            website: document.getElementById('website').value,
-            service: document.getElementById('service') ? document.getElementById('service').value : " " ,
-            budget: document.getElementById('budget') ? document.getElementById('budget').value : " " ,
-            timeline: document.getElementById('timeline') ? document.getElementById('timeline').value : " " ,
-            message: document.getElementById('message').value
+            name: fullName,
+            firstName: val('firstName') || fullName,
+            lastName: val('lastName'),
+            company: val('company'),
+            email: val('email'),
+            phone: val('phone'),
+            website: val('website'),
+            service: val('service'),
+            budget: val('budget'),
+            timeline: val('timeline'),
+            message: val('message'),
+            consent: consentEl ? (consentEl.checked ? 'yes' : 'no') : '',
+            page: window.location.pathname
         };
 
         // Send the form data
@@ -337,10 +347,10 @@ if (formmmmm) {
         let isValid = true;
 
         // Required fields validation
-        const requiredFields = ['firstName', 'email', 'service', 'message'];
+        const requiredFields = [document.getElementById('name') ? 'name' : 'firstName', 'email', 'phone', 'service', 'message'];
         requiredFields.forEach(field => {
             const element = document.getElementById(field);
-            if (!element.value.trim()) {
+            if (element && !element.value.trim()) {
                 showError(element, 'This field is required');
                 isValid = false;
             }
@@ -353,10 +363,17 @@ if (formmmmm) {
             isValid = false;
         }
 
-        // Website URL validation (if provided)
+        // Website URL validation (if the field exists and is filled in)
         const website = document.getElementById('website');
-        if (website.value.trim() && !isValidURL(website.value)) {
+        if (website && website.value.trim() && !isValidURL(website.value)) {
             showError(website, 'Please enter a valid URL');
+            isValid = false;
+        }
+
+        // PDPA consent is required where the form has the checkbox
+        const consent = document.getElementById('consent');
+        if (consent && !consent.checked) {
+            showError(consent, 'Please agree so we can contact you about your enquiry');
             isValid = false;
         }
 
