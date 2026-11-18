@@ -1,0 +1,4 @@
+[02-Nov-2026 14:58:55 UTC] PHP Warning:  Undefined array key "phone" in /home/digimarketing/public_html/rest/contact-form.php on line 21
+[02-Nov-2026 14:58:55 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/digimarketing/public_html/rest/contact-form.php on line 21
+[07-Nov-2026 01:01:44 UTC] PHP Warning:  Undefined array key "phone" in /home/digimarketing/public_html/rest/contact-form.php on line 21
+[07-Nov-2026 01:01:44 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/digimarketing/public_html/rest/contact-form.php on line 21
