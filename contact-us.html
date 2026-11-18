@@ -192,6 +192,32 @@
   ]
 }
     </script>
+    <!-- Schema: organization/breadcrumb/service -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.digimarketing.sg/contact-us#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.digimarketing.sg/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Contact Us",
+              "item": "https://www.digimarketing.sg/contact-us"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 
 <body>
@@ -638,6 +664,24 @@
                         </li>
                     </ul>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office map -->
+    <section class="map-sec pt-[60px] xl:pt-[120px] w-full">
+        <div class="my-container">
+            <div class="wk-top xl:mb-[40px] mb-[24px] flex flex-col justify-center items-center">
+                <h2 class="sec-title text-center max-w-[100%]">
+                    Visit Our <span class="editor">Singapore Office</span>
+                </h2>
+                <p class="disc text-[#808080] pt-[12px] text-center">12 Woodlands Square, #13-79, Woods Square, Singapore 737715</p>
+            </div>
+            <div class="w-full overflow-hidden rounded-[20px] border border-[#1C1C1C1A]">
+                <iframe title="Digimarketing office location on Google Maps"
+                    src="https://www.google.com/maps?q=12+Woodlands+Square,+%2313-79,+Woods+Square,+Singapore+737715&amp;output=embed"
+                    class="block w-full h-[320px] md:h-[420px]" style="border:0;" loading="lazy" allowfullscreen
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>

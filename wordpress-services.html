@@ -122,6 +122,75 @@
     <!-- End Meta Pixel Code -->
 
 
+    <!-- Schema: organization/breadcrumb/service -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.digimarketing.sg/#organization",
+          "name": "Digimarketing",
+          "legalName": "Digi Marketing Pte. Ltd.",
+          "url": "https://www.digimarketing.sg/",
+          "logo": "https://www.digimarketing.sg/assets/images/Logo1.webp",
+          "telephone": "+65 8233 6257",
+          "email": "sales@digimarketing.sg",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "12 Woodlands Square, #13-79, Woods Square",
+            "addressLocality": "Singapore",
+            "postalCode": "737715",
+            "addressCountry": "SG"
+          },
+          "sameAs": [
+            "https://www.linkedin.com/company/digimarketing-sg/",
+            "https://www.facebook.com/people/DigiMarketing/61575766873186/",
+            "https://www.instagram.com/digimarketing.sg/"
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.digimarketing.sg/wordpress-services#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.digimarketing.sg/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Services",
+              "item": "https://www.digimarketing.sg/services"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "WordPress Development",
+              "item": "https://www.digimarketing.sg/wordpress-services"
+            }
+          ]
+        },
+        {
+          "@type": "Service",
+          "@id": "https://www.digimarketing.sg/wordpress-services#service",
+          "name": "WordPress Development Services",
+          "serviceType": "WordPress development",
+          "url": "https://www.digimarketing.sg/wordpress-services",
+          "provider": {
+            "@id": "https://www.digimarketing.sg/#organization"
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "Singapore"
+          },
+          "description": "WordPress development in Singapore. Digimarketing builds custom WordPress websites, themes and plugins, with speed optimisation, migration and support."
+        }
+      ]
+    }
+    </script>
 </head>
 
 <body>

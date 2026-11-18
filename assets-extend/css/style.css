@@ -514,7 +514,7 @@ label {
 
 .bottom-form-holder .right-info:before {
     content: '';
-    background-image: url('../images/right-info-bg-img.webp');
+    background-image: url('../../assets/images/right-info-bg-img.webp');
     background-repeat: no-repeat;
     background-position: bottom center;
     background-size: cover;
@@ -1054,7 +1054,7 @@ ul.wbg li {
     bottom: 0;
     height: 70px;
     width: 70px;
-    background-image: url(../images/icons/prtf-btn-B.svg);
+    background-image: url(../../assets/images/icons/prtf-btn-B.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -1211,7 +1211,7 @@ ul.wbg li {
     position: absolute;
     bottom: 0;
     left: 0;
-    background-image: url('../images/port-box-bg.webp');
+    background-image: url('../../assets/images/port-box-bg.webp');
     background-position: center;
     background-size: cover;
     width: 305px;
