@@ -35,4 +35,5 @@ Disallow: /?rest_route=
 
 # Sitemaps
 Sitemap: https://www.digimarketing.sg/blog/sitemap_index.xml
+Sitemap: https://www.digimarketing.sg/sitemap.xml
 Sitemap: https://www.digimarketing.sg/sitemap_main_index.xml
