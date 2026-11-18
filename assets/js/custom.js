@@ -311,6 +311,16 @@ if (formmmmm) {
             .then(response => response.json())
             .then(data => {
                 if (data.code === "200") {
+                    // GA4 conversion: fired only after the server confirms the enquiry.
+                    // No personal data is sent; GA4 attributes the lead to its traffic source.
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({
+                        event: 'generate_lead',
+                        form_id: 'contactForm',
+                        form_location: window.location.pathname,
+                        lead_service: formData.service || '',
+                        lead_budget: formData.budget || ''
+                    });
                     showMessage('submitSuccessMessage');
                     document.getElementById('contactForm').reset();
                 } else {
