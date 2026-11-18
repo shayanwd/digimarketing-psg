@@ -73,6 +73,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="/assets/css/mega-menu.css">
 
 
     <!-- Animate.css -->
@@ -265,139 +266,59 @@
                             <a href="about-us">About Us</a>
                         </li>
 
-                        <li class="relative group">
-                            <a href="#"
-                                class="flex items-center gap-[4px] services-dropdown-trigger active">Services</a>
-                            <ul
-                                class="dropdown-menu-1 bg-[#efefef] max-w-[260px] rounded-[6px] flex flex-col services-dropdown">
-                                <li>
-                                    <a href="crm-system">
-                                        CRM Solutions
-                                        <img src="assets/images/icons/dropdown-icon-crm.svg" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="digiai-marketing">
-                                        AI Marketing
-                                        <img src="assets/images/icons/dropdown-icon-aimkt.svg" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="ui-ux-design">
-                                        UI/UX
-                                        <img src="assets/images/dropdown-icon-1.svg" alt="">
-                                    </a>
-                                </li>
-                                <li class="relative">
-                                    <span class="mm-toggler"></span>
-                                    <a href="wordpress-services">
-                                        WordPress Services
-                                        <img src="assets/images/icons/menu-arr.svg" alt="">
-                                    </a>
-                                    <ul
-                                        class="overflow-hidden dropdown-menu-1 bg-[#efefef] w-[100%] max-w-[260px] rounded-r-[6px] rounded-b-[6px] flex flex-col absolute top-[0] left-[100%]">
-                                        <li>
-                                            <a href="woocommerce-services">
-                                                WooCommerce
-                                                <img src="assets/images/woo-icon.svg" alt="">
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="wordpress-hosting">
-                                                WordPress hosting
-                                                <img src="assets/images/icons/wp-icoo.svg" alt="">
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="relative">
-                                    <span class="mm-toggler"></span>
-                                    <a href="shopify-store-setup-services">
-                                        Shopify Services
-                                        <img src="assets/images/icons/menu-arr.svg" alt="">
-                                    </a>
-                                    <ul
-                                        class="overflow-hidden dropdown-menu-1 bg-[#efefef] w-[100%] max-w-[260px] rounded-r-[6px] rounded-b-[6px] flex flex-col absolute top-[0] left-[100%]">
-                                        <li>
-                                            <a href="shopify-store-migration-services">
-                                                Migration Services
-                                                <img src="assets/images/migration-icon.svg" alt="">
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="shopify-maintenance-services-in-singapore">Maintenance
-                                                Services
-                                                <img src="assets/images/maintenance-icon.svg" alt="">
-                                            </a>
-
-                                        </li>
-                                        <li>
-                                            <a href="shopify-app-development-services">App Development
-                                                <img src="assets/images/app-icon.svg" alt="">
-                                            </a>
-
-                                        </li>
-                                        <li>
-                                            <a href="shopify-speed-optimization-services">Speed Optimization
-                                                <img src="assets/images/speed-icon.svg" alt="">
-                                            </a>
-
-                                        </li>
-                                        <li>
-                                            <a href="shopify-theme-development-services">Theme Development
-                                                <img src="assets/images/th-development-icon.svg" alt="">
-                                            </a>
-
-                                        </li>
-                                        <li>
-                                            <a href="shopify-store-setup-services">Store Setup
-                                                <img src="assets/images/store-icon.svg" alt="">
-                                            </a>
-
-                                        </li>
-                                        <li>
-                                            <a href="shopify-theme-customization">Theme Customization
-                                                <img src="assets/images/theme-icon.svg" alt="">
-                                            </a>
-
-                                        </li>
-                                        <li>
-                                            <a href="shopify-web-design-services">Shopify Web Design
-                                                <img src="assets/images/web-icon.svg" alt="">
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="react-js-development">
-                                        React js
-                                        <img src="assets/images/react-icon.svg" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="next-js-development">
-                                        Next js
-                                        <img src="assets/images/next-icon.svg" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="seo-optimization">
-                                        SEO
-                                        <img src="assets/images/seo-icon.svg" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="website-design">
-                                        Website Design
-                                        <img src="assets/images/icons/mingcute_pen-line.svg" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="ppc-management-agency">PPC Management
-                                        <img src="assets/images/icons//ppc-icon.svg" alt="">
-                                    </a>
-                                </li>
-                            </ul>
+                        <li class="relative group mega-parent">
+                            <a href="/services"
+                                class="flex items-center gap-[4px] services-dropdown-trigger active" aria-controls="services-mega" aria-expanded="false">Services</a>
+                            <div class="mega-menu services-dropdown" id="services-mega">
+                                <div class="mm-groups">
+                                    <div class="mm-group">
+                                        <button type="button" class="mm-heading" aria-expanded="false" aria-controls="mm-group-1">Websites <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"></path></svg></button>
+                                        <div class="mm-links" id="mm-group-1">
+                                            <a class="mm-link" href="/website-design"><span class="mm-name">Website Design</span><span class="mm-hint">Custom business websites</span></a>
+                                            <a class="mm-link" href="/ui-ux-design"><span class="mm-name">UI/UX Design</span><span class="mm-hint">Research, wireframes, prototypes</span></a>
+                                            <a class="mm-link" href="/react-js-development"><span class="mm-name">React.js Development</span><span class="mm-hint">Fast, interactive web apps</span></a>
+                                            <a class="mm-link" href="/next-js-development"><span class="mm-name">Next.js Development</span><span class="mm-hint">SEO-friendly web apps</span></a>
+                                        </div>
+                                    </div>
+                                    <div class="mm-group">
+                                        <button type="button" class="mm-heading" aria-expanded="false" aria-controls="mm-group-2">Shopify <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"></path></svg></button>
+                                        <div class="mm-links" id="mm-group-2">
+                                            <a class="mm-link" href="/shopify-web-design-services"><span class="mm-name">Shopify Web Design</span><span class="mm-hint">Store design that converts</span></a>
+                                            <a class="mm-link" href="/shopify-store-setup-services"><span class="mm-name">Store Setup</span><span class="mm-hint">Launch-ready in weeks</span></a>
+                                            <a class="mm-link" href="/shopify-theme-development-services"><span class="mm-name">Theme Development</span><span class="mm-hint">Built from scratch</span></a>
+                                            <a class="mm-link" href="/shopify-theme-customization"><span class="mm-name">Theme Customization</span><span class="mm-hint">Change your current theme</span></a>
+                                            <a class="mm-link" href="/shopify-app-development-services"><span class="mm-name">App Development</span><span class="mm-hint">Custom Shopify apps</span></a>
+                                            <a class="mm-link" href="/shopify-speed-optimization-services"><span class="mm-name">Speed Optimization</span><span class="mm-hint">Core Web Vitals</span></a>
+                                            <a class="mm-link" href="/shopify-store-migration-services"><span class="mm-name">Store Migration</span><span class="mm-hint">Move from any platform</span></a>
+                                            <a class="mm-link" href="/shopify-maintenance-services-in-singapore"><span class="mm-name">Maintenance</span><span class="mm-hint">Monthly care plans</span></a>
+                                        </div>
+                                    </div>
+                                    <div class="mm-group">
+                                        <button type="button" class="mm-heading" aria-expanded="false" aria-controls="mm-group-3">WordPress <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"></path></svg></button>
+                                        <div class="mm-links" id="mm-group-3">
+                                            <a class="mm-link" href="/wordpress-services"><span class="mm-name">WordPress Development</span><span class="mm-hint">Sites you can edit yourself</span></a>
+                                            <a class="mm-link" href="/woocommerce-services"><span class="mm-name">WooCommerce</span><span class="mm-hint">Online stores on WordPress</span></a>
+                                            <a class="mm-link" href="/wordpress-hosting"><span class="mm-name">WordPress Hosting</span><span class="mm-hint">Managed, backed up daily</span></a>
+                                        </div>
+                                    </div>
+                                    <div class="mm-group">
+                                        <button type="button" class="mm-heading" aria-expanded="false" aria-controls="mm-group-4">Marketing &amp; tools <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"></path></svg></button>
+                                        <div class="mm-links" id="mm-group-4">
+                                            <a class="mm-link" href="/seo-optimization"><span class="mm-name">SEO Services</span><span class="mm-hint">Rank in Singapore searches</span></a>
+                                            <a class="mm-link" href="/ppc-management-agency"><span class="mm-name">PPC Management</span><span class="mm-hint">Google &amp; Meta ads</span></a>
+                                            <a class="mm-link" href="/digiai-marketing"><span class="mm-name">AI Marketing</span><span class="mm-hint">Digi.AI content platform</span></a>
+                                            <a class="mm-link" href="/crm-system"><span class="mm-name">DigiCRM</span><span class="mm-hint">CRM + invoicing for SMEs</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mm-promo">
+                                    <span class="mm-badge">Funding</span>
+                                    <p class="mm-promo-title">EDGE Grant: up to <span class="editor">50% support</span></p>
+                                    <p>Check if your e-commerce project qualifies before you start.</p>
+                                    <a href="/edge-grant-for-e-commerce-solution#eligibility">Check eligibility →</a>
+                                    <a class="mm-all" href="/services">See all services →</a>
+                                </div>
+                            </div>
 
 
 

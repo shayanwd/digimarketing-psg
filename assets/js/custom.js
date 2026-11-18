@@ -650,3 +650,36 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+// Services mega-menu (design board 01): keep aria-expanded in sync and
+// turn the four groups into accordions inside the mobile drawer.
+(function () {
+    const mega = document.getElementById('services-mega');
+    if (!mega) return;
+    const trigger = document.querySelector('[aria-controls="services-mega"]');
+    const sync = () => {
+        if (!trigger) return;
+        const open = mega.classList.contains('show') || mega.classList.contains('active');
+        trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+    new MutationObserver(sync).observe(mega, { attributes: true, attributeFilter: ['class'] });
+
+    mega.querySelectorAll('.mm-heading').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+            if (window.innerWidth > 1200) return; // desktop: headings are labels, all links visible
+            e.preventDefault();
+            e.stopPropagation();
+            const group = btn.closest('.mm-group');
+            const open = group.classList.toggle('open');
+            btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && mega.classList.contains('show')) {
+            mega.classList.remove('show');
+            const g = mega.closest('.group');
+            if (g) g.classList.remove('active');
+            if (trigger) trigger.focus();
+        }
+    });
+})();
