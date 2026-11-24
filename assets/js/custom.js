@@ -216,15 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //     }
     // }
 
-    // Close dropdown when clicking outside
-    document.addEventListener('click', (e) => {
-        if (window.innerWidth > 1200) {
-            if (!servicesGroup.contains(e.target)) {
-                servicesGroup.classList.remove('active');
-                servicesDropdown.classList.remove('show');
-            }
-        }
-    });
+    // (Outside-click closing is handled by the multi-dropdown handler above.)
 
     // Handle mobile menu
     hamburgerMenu.addEventListener('click', toggleMenu);
@@ -262,11 +254,10 @@ document.addEventListener('DOMContentLoaded', () => {
             hamburgerMenu.classList.remove('active');
             navMenu.classList.remove('active');
             document.body.style.overflow = '';
-            servicesDropdown.classList.remove('active');
+            document.querySelectorAll('.services-dropdown.active').forEach(d => d.classList.remove('active'));
         } else {
             // Reset desktop dropdown state on mobile
-            servicesGroup.classList.remove('active');
-            servicesDropdown.classList.remove('show');
+            closeAllDropdowns();
         }
     });
 
@@ -639,10 +630,18 @@ function trackPSGModalCTA() {
 
 // Initialize PSG modal functionality
 document.addEventListener('DOMContentLoaded', function () {
-    // Show modal after 5 seconds
-    setTimeout(() => {
-        showPSGModal();
-    }, 5000);
+    // Show modal after 5 seconds, at most once per visitor every 7 days
+    // (a full-screen popup on every page view is an intrusive interstitial for Google on mobile)
+    const PSG_MODAL_KEY = 'psgModalLastShown';
+    const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
+    let lastShown = 0;
+    try { lastShown = Number(localStorage.getItem(PSG_MODAL_KEY)) || 0; } catch (e) { }
+    if (Date.now() - lastShown > WEEK_MS) {
+        setTimeout(() => {
+            showPSGModal();
+            try { localStorage.setItem(PSG_MODAL_KEY, String(Date.now())); } catch (e) { }
+        }, 5000);
+    }
 
     // Add click event listener for CTA button
     const psgModalCTA = document.querySelector('.psg-modal-btn-primary');
