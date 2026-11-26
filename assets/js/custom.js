@@ -2,18 +2,22 @@
 //     anchorPlacement: 'bottom-bottom' // Makes animations trigger from bottom of viewport
 // });
 
-var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 4,
-    slidesPerView: "auto",
-    spaceBetween: 30,
-    loop: true,
-    centeredSlides: true,
-    speed: 800,
-    scrollbar: {
-        el: ".swiper-scrollbar",
-        hide: true,
-    },
-});
+// Only start the slider where Swiper is loaded and the slider markup exists
+var swiper;
+if (window.Swiper && document.querySelector(".mySwiper")) {
+    swiper = new Swiper(".mySwiper", {
+        slidesPerView: 4,
+        slidesPerView: "auto",
+        spaceBetween: 30,
+        loop: true,
+        centeredSlides: true,
+        speed: 800,
+        scrollbar: {
+            el: ".swiper-scrollbar",
+            hide: true,
+        },
+    });
+}
 
 
 
