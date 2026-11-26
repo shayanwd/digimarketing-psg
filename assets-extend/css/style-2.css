@@ -1,6 +1,7 @@
 @font-face {
     font-family: "EditorsNote";
-    src: url(../fonts/EditorsNote-MediumItalic.woff2);
+    src: url('../fonts/EditorsNote-MediumItalic.woff2') format('woff2');
+    font-display: swap;
 }
 
 .wow {
