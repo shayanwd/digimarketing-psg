@@ -94,10 +94,11 @@
 
 
     <!-- Animate.css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" /></noscript>
 
     <!-- WOW.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" defer></script>
 
     <script>
         (function (w, d, s, r, n) {
@@ -450,7 +451,7 @@
     </header>
 
     <section
-        class="mg-hero hero-sec service-hero abt-hero xl:py-[120px] py-[60px] wow animate__animated animate__fadeIn set-span">
+        class="mg-hero hero-sec service-hero abt-hero xl:py-[120px] py-[60px] set-span">
         <div class="hr-container">
             <div
                 class="hr-inner grid grid-cols-[100%] xl:grid-cols-[58%_1fr] items-center xl:gap-[60px] gap-[24px] sm:grid-cols-[100%] md:grid-cols-[50%_1fr] lg:grid-cols-[58%_1fr] md:gap-[35px] lg:gap-[60px] justify-between">
@@ -1495,7 +1496,10 @@
     </script>
 
     <script>
-        new WOW().init();
+        // wow.min.js is deferred; deferred scripts run before DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', function () {
+            new WOW().init();
+        });
     </script>
 </body>
 

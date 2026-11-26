@@ -75,15 +75,17 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="/assets/css/mega-menu.css">
     <!-- Animate.css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" /></noscript>
 
     <!-- WOW.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" defer></script>
 
 
 
     <!-- Animate.css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" /></noscript>
 
     <!-- WOW.js -->
 
@@ -374,12 +376,12 @@
                 </div>
 
                 <h1
-                    class="sec-title mb-[16px] max-w-[1110px] mx-auto text-center wow animate__animated animate__fadeInUp">
+                    class="sec-title mb-[16px] max-w-[1110px] mx-auto text-center">
                     Comprehensive <span class="editor">Web Design & <br> Development</span>
                     Services in Singapore
                 </h1>
 
-                <p class="disc max-w-[600px] mx-auto wow animate__animated animate__fadeInUp">
+                <p class="disc max-w-[600px] mx-auto">
                     At Digimarketing, we provide end-to-end website development services in Singapore, built to drive
                     traffic, engage users, and boost conversions.
                 </p>
@@ -388,7 +390,7 @@
             <div class="ex-bottom text-left">
                 <div class="flex gap-[30px] mb-[30px]">
                     <div
-                        class="w-[69%] serv-box grad p-[20px] flex items-center gap-[20px] lg:w-[75%] transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:border hover:border-[#007bff]/20 cursor-pointer wow animate__animated animate__fadeInLeft">
+                        class="w-[69%] serv-box grad p-[20px] flex items-center gap-[20px] lg:w-[75%] transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:border hover:border-[#007bff]/20 cursor-pointer">
                         <div class="left-img">
                             <img src="assets/images/serv-img-1.webp" alt="Website design project shown on a laptop" loading="lazy">
                         </div>
@@ -411,7 +413,7 @@
                     </div>
 
                     <div
-                        class="w-[31%] serv-box bg-[#FFFFFF] p-[20px] lg:w-[36%] transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:border hover:border-[#007bff]/20 cursor-pointer wow animate__animated animate__fadeInRight">
+                        class="w-[31%] serv-box bg-[#FFFFFF] p-[20px] lg:w-[36%] transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:border hover:border-[#007bff]/20 cursor-pointer">
                         <img src="assets/images/icons/csd-02.png"
                             class="serv-icon mb-[12px] transition-transform duration-300 hover:rotate-12" alt=""
                             loading="lazy">
@@ -936,7 +938,10 @@
 
 
     <script>
-        new WOW().init();
+        // wow.min.js is deferred; deferred scripts run before DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', function () {
+            new WOW().init();
+        });
     </script>
 </body>
 
