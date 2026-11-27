@@ -78,7 +78,10 @@
 
 
     <!-- Link Swiper's CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="preload" as="image" href="assets-extend/images/hero-sec-before.webp" fetchpriority="high">
+    <link rel="preload" as="image" href="assets-extend/images/hero-sec-after.webp">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /></noscript>
     <link rel="preload" href="assets-extend/fonts/EditorsNote-MediumItalic.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="assets-extend/css/style.css">
     <link rel="stylesheet" href="assets-extend/css/style-2.css">
